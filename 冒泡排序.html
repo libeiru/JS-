@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Bubble_sort(arr) {
+            //定义一个临时空变量，进行两数交换
+            var temp;
+            //外层循环从0开始，第一个数下标为0，走的趟数为 长度-1
+            for (var i = 0; i <= arr.length - 1; i++) {
+                for (var j = 0; j < arr.length - i - 1; j++) {
+                    //冒泡排序是交换相邻两个数，一直比较交换，直到把最大数放后面去
+                    if (arr[j] > arr[j + 1]) {
+                        j = j + 1;
+                    }
+                }
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+            return arr;
+        }
+        var a = [2, 1, 7, 6, 9];
+        console.log(Bubble_sort(a));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

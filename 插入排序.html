@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function swap(arr, i, j) {
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        function insert_sort(arr) {
+            for (var i = 1; i < arr.length; i++) {
+                for (var j = i; j > 0; j--) {
+                    if (arr[j] < arr[j - 1]) {
+                        swap(arr, j, j - 1);
+                    }
+                }
+            }
+            return arr;
+        }
+
+        var a = [3, 2, 6, 7, 4];
+        console.log(insert_sort(a));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

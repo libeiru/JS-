@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function quick(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+            var left = [],
+                right = [],
+                k = arr.splice(0, 1)[0];
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] > k) {
+                    right.push(arr[i]);
+                } else {
+                    left.push(arr[i]);
+                }
+            }
+            return quick(left).concat([k], quick(right));
+        }
+        var a = [2, 7, 1, 9, 8, 27, 18, 67, 34];
+        console.log(quick(a));
+    </script>
+</body>
+
+</html>
