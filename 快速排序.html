@@ -9,24 +9,28 @@
 
 <body>
     <script>
-        function quick(arr) {
+        function quick_sort(arr) {
             if (arr.length <= 1) {
                 return arr;
             }
             var left = [],
                 right = [],
+                //从第0位开始删除一个元素，取第0个元素，k就是第0位的元素 第一个
+                //然后剩下的元素组成一个数组
                 k = arr.splice(0, 1)[0];
             for (var i = 0; i < arr.length; i++) {
+                // arr[i] > k ? right.push(arr[i]) : left.push(arr[i]);
                 if (arr[i] > k) {
+                    //push方法指在数组的尾部添加一个或多个元素，并返回数组新的长度
                     right.push(arr[i]);
                 } else {
                     left.push(arr[i]);
                 }
             }
-            return quick(left).concat([k], quick(right));
+            return quick_sort(left).concat([k], quick_sort(right));
         }
-        var a = [2, 7, 1, 9, 8, 27, 18, 67, 34];
-        console.log(quick(a));
+        var a = [2, 7, 1, 9, 8, 27, 18, 67, 34, 0];
+        console.log(quick_sort(a));
     </script>
 </body>
 
